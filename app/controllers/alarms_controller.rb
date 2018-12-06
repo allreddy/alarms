@@ -1,7 +1,6 @@
 require 'rest-client'
 
 class AlarmsController < ApplicationController
-    
     def index
         @alarms = Alarm.all.reverse
     end
@@ -20,7 +19,6 @@ class AlarmsController < ApplicationController
         @alarm.downvotes = 0
 
         if @alarm.save
-
             # TODO: Make an async POST 
             Thread.new do
                 puts 'Async POST request'
@@ -48,7 +46,6 @@ class AlarmsController < ApplicationController
 
         redirect_to alarms_path
     end
-
 
     def destroy
         @alarm = Alarm.find(params[:id])

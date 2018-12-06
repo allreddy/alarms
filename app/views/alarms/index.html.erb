@@ -5,17 +5,22 @@
 <p>
     <table>
     <% @alarms.each do |alarm| %>
-        <tr>
-        <td><%= alarm.name %>:</td>
-        <td><%= alarm.text %></td>
-        <td>Up <%= alarm.upvotes %></td>
-        <td>Down <%= alarm.downvotes %></td>
+        <p>
+            <tr>
+                <td><%= alarm.name %>:</td>
+                <td><%= alarm.text %></td>
+                <td>Up <%= alarm.upvotes %></td>
+                <td>Down <%= alarm.downvotes %></td>
+            </tr>
 
-        <td><%= link_to 'Show', alarm_path(alarm) %></td>
-        <td><%= link_to 'Delete', alarm_path(alarm), method: :delete %></td>
-        <td><%= link_to 'Upvote', add_upvote_alarm_path(alarm), method: :put %></td>
-        <td><%= link_to 'Downvote', add_downvote_alarm_path(alarm), method: :put %></td>
-        </tr>
+            <tr>
+                <td><%= link_to 'Show', alarm_path(alarm) %></td>
+                <td><%= link_to 'Delete', alarm_path(alarm), method: :delete %></td>
+                <td><%= link_to 'Upvote', add_upvote_alarm_path(alarm), method: :put %></td>
+                <td><%= link_to 'Downvote', add_downvote_alarm_path(alarm), method: :put %></td>
+            </tr>
+        </p>
+        
     <% end %>
     </table>
 </p>
