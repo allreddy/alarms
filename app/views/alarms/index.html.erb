@@ -9,7 +9,7 @@
         <td><%= alarm.name %>:</td>
         <td><%= alarm.text %></td>
         <td>Up <%= alarm.upvotes %></td>
-        <td>Up <%= alarm.downvotes %></td>
+        <td>Down <%= alarm.downvotes %></td>
 
         <td><%= link_to 'Show', alarm_path(alarm) %></td>
         <td><%= link_to 'Delete', alarm_path(alarm), method: :delete %></td>
