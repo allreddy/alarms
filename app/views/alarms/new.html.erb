@@ -1,0 +1,32 @@
+<h1>Create your ALARM</h1>
+
+<%= form_with scope: :alarm, url: alarms_path, local: true do |form| %>
+  <% if @alarm.errors.any? %>
+    <div>
+      <h2>
+        <%= pluralize(@alarm.errors.count, "error") %> while saving your alarm:
+      </h2>
+      <ul>
+        <% @alarm.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %> 
+  
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :text %><br>
+    <%= form.text_area :text %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', alarms_path %>

@@ -1,0 +1,21 @@
+<h1>Here are your alarms</h1>
+
+<%= link_to 'New alarm', new_alarm_path %>
+
+<p>
+    <table>
+    <% @alarms.each do |alarm| %>
+        <tr>
+        <td><%= alarm.name %>:</td>
+        <td><%= alarm.text %></td>
+        <td>Up <%= alarm.upvotes %></td>
+        <td>Up <%= alarm.downvotes %></td>
+
+        <td><%= link_to 'Show', alarm_path(alarm) %></td>
+        <td><%= link_to 'Delete', alarm_path(alarm), method: :delete %></td>
+        <td><%= link_to 'Upvote', add_upvote_alarm_path(alarm), method: :put %></td>
+        <td><%= link_to 'Downvote', add_downvote_alarm_path(alarm), method: :put %></td>
+        </tr>
+    <% end %>
+    </table>
+</p>
